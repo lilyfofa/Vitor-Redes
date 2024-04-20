@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vitor Redes</title>
+        <style>
+        .form-wrapper {
+            display: inline-block;
+        }
+        </style>
+</head>
+<body>
+    <h2>Vitor Redes</h2>
+      <h2>Parâmetros do circuito:</h2>
+    <div class="form-wrapper">
+    <form action="/processar" method="post">
+         {% if not parametros %}
+        <label for="nos">Número de nós:</label>
+        <input type="text" autofocus name="nos" placeholder="Insira o número de nós">
+        <br>
+        <label for="referencia">Nó de referência:</label>
+        <input type="text" name="referencia" placeholder="Insira o nó de referência">
+        <br>
+        <label for="nominal">Nó da tensão nominal:</label>
+        <input type="text" name="nominal" placeholder="Insira o nó da tensão nominal">
+        <br>
+        <label for="tensao_nominal">Valor da tensão nominal:</label>
+        <input type="text" name="tensao_nominal" placeholder="Insira o valor da tensão nominal">
+        <br>
+        <label for="escolha">Injeção de corrente/potência?</label>
+        <input type="radio" id="sim" name="escolha" value="sim">
+        <label for="sim">Sim</label>
+        <input type="radio" id="nao" name="escolha" value="nao">
+        <label for="nao">Não</label>
+        <br>
+        <label for="no_injecao">Nó da injeção:</label>
+        <input type="text" name="no_injecao" placeholder="Insira o nó da injeção">
+        <br>
+        <label for="valor_injecao">Valor da injeção em A ou VA:</label>
+        <input type="text" name="valor_injecao" placeholder="Insira o valor da injeção">
+        <br><br>
+        <input type="submit" value="Enviar">
+        {% else %}
+        {% if parametros[4] == 'sim' %}
+        <p>Número de nós: {{ parametros[0] }} <br> Nó de referência:
+            {{ parametros[1] }}<br> Nó da tensão nominal: {{ parametros[2] }}<br> Tensão nominal: {{ parametros[3] }} [V]<br> Injeção de {{ parametros[6] }} [A/VA] no nó
+        {{ parametros[5] }}</p>
+        {% else %}
+        <p>Número de nós: {{ parametros[0] }} <br> Nó de referência:
+            {{ parametros[1] }}<br> Nó da tensão nominal: {{ parametros[2] }}<br> Tensão nominal: {{ parametros[3] }} [V]<br>Sem injeção de corrente/potência!</p>
+        {% endif %}
+        {% endif %}
+        <h2>Insira as cargas:</h2>
+        {% if not parametros %}
+        <label for="dados">Impedância:</label>
+        <input type="text" name="dados" placeholder="Insira a impedância">
+        {% else %}
+        <label for="dados">Impedância:</label>
+        <input type="text" autofocus name="dados" placeholder="Insira a impedância">
+        {% endif %}
+        <br>
+        <label for="no1">Primeiro nó:</label>
+        <input type="text" name="no1" placeholder="Insira o primeiro nó">
+        <br>
+        <label for="no2">Segundo nó:</label>
+        <input type="text" name="no2" placeholder="Insira o segundo nó">
+        <br><br>
+        <input type="submit" value="Enviar">
+    </form>
+    <div class="form-wrapper">
+        <form action="/calcular" method="post">
+    <input type="submit" value="Calcular">
+        </form>
+    </div>
+    <br>
+    <div class="form-wrapper">
+    <form action="/remover-ultimo" method="post">
+        <input type="submit" value="Remover Último">
+    </form>
+    </div>
+    <div class="form-wrapper">
+        <form action="/remover-todos" method="post">
+        <input type="submit" value="Remover Todos">
+    </form>
+    </div>
+    <div class="form-wrapper">
+    <form action="/limpar-parametros" method="post">
+        <input type="submit" value="Limpar parâmetros">
+    </form>
+    </div>
+    <h2>Dados inseridos:</h2>
+    <ul>
+        {% for lista in dados %}
+            <li>
+                Impedância de {{ lista[0] }} [Ω] entre os nós {{ lista[1] }} e {{ lista[2] }}
+            </li>
+        {% endfor %}
+    </ul>
+    {% if resultado is not none %}
+     <h2>Resultado:</h2>
+    <ul>
+        {% for item in resultado %}
+            <li>{{ item }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</body>
+</html>
