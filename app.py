@@ -3,7 +3,7 @@ from funcao import AnaliseNodal
 
 app = Flask(__name__)
 
-dados = []  # Lista para armazenar os dados inseridos
+dados = []  # Teste github
 parametros = []
 
 
