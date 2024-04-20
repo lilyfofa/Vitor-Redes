@@ -16,13 +16,14 @@ def formulario():
 @app.route('/processar', methods=['POST'])
 def processar():
     global dados, parametros
-    v1 = request.form['nos']
-    v2 = request.form['referencia']
-    v3 = request.form['nominal']
-    v4 = request.form['tensao_nominal']
-    v5 = request.form['injecao']
-    v6 = request.form['no_injecao']
-    v7 = request.form['valor_injecao']
+    if not parametros:
+        v1 = request.form['nos']
+        v2 = request.form['referencia']
+        v3 = request.form['nominal']
+        v4 = request.form['tensao_nominal']
+        v5 = request.form['injecao']
+        v6 = request.form['no_injecao']
+        v7 = request.form['valor_injecao']
     v8 = request.form['dados']
     v9 = request.form['no1']
     v10 = request.form['no2']
