@@ -1,0 +1,44 @@
+@font-face {
+  font-family: "San Francisco";
+  font-weight: 400;
+  src: url("sanfranciscodisplay-regular-webfont.woff");
+}
+
+* {
+    font-family: "San Francisco"; /* Use o nome que você definiu acima seguido de fallbacks caso a fonte não seja carregada */
+}
+
+body {
+    color: #f0f0f0;
+}
+
+/* arquivo.css */
+
+/* Estilizando campos de formulário */
+input[type="text"],
+textarea,
+select,
+input[type="submit"] {
+    background-color: #f0f0f0; /* Cor de fundo */
+    border-radius: 5px; /* Bordas arredondadas */
+    border: 1px solid #ccc; /* Borda */
+    padding: 5px; /* Espaçamento interno */
+}
+
+/* Estilizando as bordas dos campos de formulário quando focados */
+input[type="text"]:focus,
+textarea:focus,
+select:focus,
+input[type="submit"]:focus {
+    border-color: #007bff; /* Cor da borda ao focar */
+    outline: none; /* Remover contorno ao focar */
+}
+
+/* Estilizando botões */
+input[type="submit"] {
+    background-color: #007bff; /* Cor de fundo do botão */
+    color: #fff; /* Cor do texto do botão */
+    border: none; /* Remover borda */
+    border-radius: 5px; /* Bordas arredondadas */
+    padding: 5px 5px; /* Espaçamento interno */
+    cursor: pointer; /* Alterar cursor ao passar sobre o botão */

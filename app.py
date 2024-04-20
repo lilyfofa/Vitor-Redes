@@ -14,13 +14,14 @@ def formulario():
 
 @app.route('/processar', methods=['POST'])
 def processar():
+    print(request.form.keys())
     global dados, parametros
     if not parametros:
         parametros = [request.form['nos'], request.form['referencia'], request.form['nominal'],
-                      request.form['tensao_nominal'], request.form['escolha'], request.form['no_injecao'],
+                      request.form['tensao_nominal'], request.form['injecao'], request.form['no_injecao'],
                       request.form['valor_injecao']]
     dado = [request.form['dados'], request.form['no1'], request.form['no2']]
-    if dado != ['', '', ''] and dado[1] != dado[2]:
+    if dado[0] != '0' and dado[1] != '0' and dado[1] != dado[2]:
         dados.append(dado)
     print(dados)
     print(parametros)
