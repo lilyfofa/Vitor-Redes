@@ -54,10 +54,8 @@ def limpar_parametros():
 @app.route('/remover-ultimo', methods=['POST'])
 def remover_ultimo():
     global dados
-
     if dados:
         dados.pop()
-
     return render_template('formulario.html', dados=dados, resultado=None, parametros=parametros)
 
 
