@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vitor Redes</title>
+        <style>
+        .form-wrapper {
+            display: inline-block;
+        }
+        body {
+            background-color: #121212; /* Substitua pela cor desejada */
+        }
+        </style>
+    <link href="{{ url_for('static', filename='styles/styles.css') }}" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <h1>Vitor Redes</h1>
+     <h2>Resultado:</h2>
+    <ul>
+        {% for item in resultado %}
+            <li>{{ item }}</li>
+        {% endfor %}
+    </ul>
+    <h2>Resumo do circuito</h2></h1>
+    <h2>Parâmetros do circuito:</h2>
+        {% if parametros[4] == 'sim_corrente' %}
+        <p>Número de nós: {{ parametros[0] }} <br> Nó de referência:
+            {{ parametros[1] }}<br> Nó da tensão nominal: {{ parametros[2] }}<br> Tensão nominal: {{ parametros[3] }} [V]<br> Injeção de {{ parametros[6] }} [A] no nó
+        {{ parametros[5] }}</p>
+        {% elif parametros[4] == 'sim_potencia' %}
+        <p>Número de nós: {{ parametros[0] }} <br> Nó de referência:
+            {{ parametros[1] }}<br> Nó da tensão nominal: {{ parametros[2] }}<br> Tensão nominal: {{ parametros[3] }} [V]<br> Injeção de {{ parametros[6] }} [VA] no nó
+        {{ parametros[5] }}</p>
+        {% else %}
+        <p>Número de nós: {{ parametros[0] }} <br> Nó de referência:
+            {{ parametros[1] }}<br> Nó da tensão nominal: {{ parametros[2] }}<br> Tensão nominal: {{ parametros[3] }} [V]<br>Sem injeção de corrente/potência!</p>
+        {% endif %}
+        {% if dados %}
+    <h2>Cargas:</h2>
+    <ul>
+        {% for lista in dados %}
+            <li>
+                Impedância de {{ lista[0] }} [Ω] entre os nós {{ lista[1] }} e {{ lista[2] }}
+            </li>
+        {% endfor %}
+    </ul>
+        {% endif %}
+  <form action="/voltar" method="post">
+            <input type="submit" value="Voltar">
+  </form>
+</body>
+</html>

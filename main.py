@@ -44,13 +44,6 @@ def processar():
     return render_template('formulario.html', dados=dados, resultado=None, parametros=parametros)
 
 
-@app.route('/limpar-parametros', methods=['POST'])
-def limpar_parametros():
-    global parametros
-    parametros = []
-    return render_template('formulario.html', dados=dados, resultado=None, parametros=parametros)
-
-
 @app.route('/remover-ultimo', methods=['POST'])
 def remover_ultimo():
     global dados
@@ -59,11 +52,13 @@ def remover_ultimo():
     return render_template('formulario.html', dados=dados, resultado=None, parametros=parametros)
 
 
-@app.route('/remover-todos', methods=['POST'])
+@app.route('/reiniciar', methods=['POST'])
 def remover_todos():
-    global dados
+    global dados, parametros
     if dados:
         dados = []
+    if parametros:
+        parametros = []
     return render_template('formulario.html', dados=dados, resultado=None, parametros=parametros)
 
 
@@ -74,6 +69,15 @@ def calcular():
         resultado = AnaliseNodal(dados, parametros)
     else:
         resultado = ['Nenhum dado inserido!']
+    return render_template('resultado.html', dados=dados, resultado=resultado, parametros=parametros)
+
+
+@app.route('/voltar', methods=['POST'])
+def voltar():
+    global dados, parametros
+    dados = []
+    parametros = []
+    resultado = []
     return render_template('formulario.html', dados=dados, resultado=resultado, parametros=parametros)
 
 

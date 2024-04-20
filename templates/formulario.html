@@ -82,17 +82,12 @@
     </form>
     </div>
     <div class="form-wrapper">
-        <form action="/remover-todos" method="post">
-        <input type="submit" value="Remover Todos">
-    </form>
-    </div>
-    <div class="form-wrapper">
-    <form action="/limpar-parametros" method="post">
-        <input type="submit" value="Limpar parâmetros">
+        <form action="/reiniciar" method="post">
+        <input type="submit" value="Reiniciar">
     </form>
     </div>
         {% if dados %}
-    <h2>Dados inseridos:</h2>
+    <h2>Cargas inseridas:</h2>
     <ul>
         {% for lista in dados %}
             <li>
@@ -108,13 +103,5 @@
         </form>
     </div>
         {% endif %}
-    {% if resultado is not none %}
-     <h2>Resultado:</h2>
-    <ul>
-        {% for item in resultado %}
-            <li>{{ item }}</li>
-        {% endfor %}
-    </ul>
-    {% endif %}
 </body>
 </html>
