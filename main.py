@@ -26,17 +26,18 @@ def processar():
     v8 = request.form['dados']
     v9 = request.form['no1']
     v10 = request.form['no2']
-    if int(v1) != 0 and int(v2) < int(v1) and int(v3) < int(v1) and int(v3) != int(v2) and v4 != '0' and v1 != '' \
-            and v2 != '' and v3 != '' and v4 != '':
-        if v5 != 'nao':
-            if int(v6) < int(v1) and int(v6) != int(v2) and int(v6) != int(v2) and v7 != '0' and v5 != '' and v6 != '' \
-                    and v7 != '':
+    if v4 != '0' and v1 != '' and v2 != '' and v3 != '' and v4 != '':
+        if int(v1) != 0 and int(v2) < int(v1) and int(v3) < int(v1) and int(v3) != int(v2):
+            if v5 != 'nao':
+                if v7 != '0' and v5 != '' and v6 != '' and v7 != '':
+                    if int(v6) < int(v1) and int(v6) != int(v2) and int(v6) != int(v2):
+                        parametros = [v1, v2, v3, v4, v5, v6, v7]
+            else:
                 parametros = [v1, v2, v3, v4, v5, v6, v7]
-        else:
-            parametros = [v1, v2, v3, v4, v5, v6, v7]
-    if v8 != '' and v9 != '' and v9 != '' and int(v9) != int(v10) and int(v9) < int(v1) and int(v10) < int(v1):
-        dado = [v8, v9, v10]
-        dados.append(dado)
+    if v8 != '' and v9 != '' and v9 != '':
+        if int(v9) != int(v10) and int(v9) < int(v1) and int(v10) < int(v1):
+            dado = [v8, v9, v10]
+            dados.append(dado)
     return render_template('formulario.html', dados=dados, resultado=None, parametros=parametros)
 
 
