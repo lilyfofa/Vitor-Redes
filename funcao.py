@@ -42,6 +42,3 @@ def AnaliseNodal(dados, parametros):
         resultado.append(RetPol(resposta[i], tensoes, i))
     return resultado
 
-
-#print(AnaliseNodal([['2', '1', '2'], ['1', '2', '0'], ['j2', '2', '0'], ['-j1', '2', '3'], ['1', '3', '0']], ['4', '0', '1', '10.39 + j6']))
-
