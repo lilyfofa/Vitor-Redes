@@ -1,5 +1,6 @@
 from flask import Flask, request, render_template
 from funcao import AnaliseNodal
+import os
 
 app = Flask(__name__)
 
@@ -64,4 +65,4 @@ def calcular():
 
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000, host='0.0.0.0')
+    app.run(debug=True, port=os.getenv("PORT", default=5000))
