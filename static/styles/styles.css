@@ -22,7 +22,7 @@ input[type="submit"] {
     background-color: #f0f0f0; /* Cor de fundo */
     border-radius: 5px; /* Bordas arredondadas */
     border: 1px solid #ccc; /* Borda */
-    padding: 5px; /* Espaçamento interno */
+    padding: 3px; /* Espaçamento interno */
 }
 
 /* Estilizando as bordas dos campos de formulário quando focados */
@@ -40,5 +40,29 @@ input[type="submit"] {
     color: #fff; /* Cor do texto do botão */
     border: none; /* Remover borda */
     border-radius: 5px; /* Bordas arredondadas */
-    padding: 5px 5px; /* Espaçamento interno */
+    padding: 3px 3px; /* Espaçamento interno */
     cursor: pointer; /* Alterar cursor ao passar sobre o botão */
+}
+
+body {
+    line-height: 2; /* Adjust this value to your desired line height */
+}
+
+h1, h2, h3, h4, h5, h6, p, /* Add any other elements you want to target */
+{
+    line-height: inherit; /* Inherit line-height from the body */
+}
+
+.btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff; /* Default button color */
+    color: #ffffff; /* Default text color */
+    border: none;
+    border-radius: 5px;
+    transition: all 0.3s ease; /* Smooth transition effect */
+}
+
+.btn:hover {
+    background-color: #0056b3; /* Darken button color on hover */
+}

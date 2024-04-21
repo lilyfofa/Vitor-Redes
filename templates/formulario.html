@@ -47,7 +47,7 @@
         <input type="text" name="valor_injecao" placeholder="Ex: 3+j5">
         <label for="valor_injecao">[A/VA]</label>
         <br><br>
-        <input type="submit" value="Confirmar">
+        <input type="submit" value="Confirmar" class="btn">
         {% else %}
         {% if parametros[4] == 'sim_corrente' %}
         <p>Número de nós: {{ parametros[0] }} <br> Nó de referência:
@@ -73,17 +73,17 @@
         <label for="no2">Segundo nó:</label>
         <input type="text" name="no2" placeholder="Ex: 2">
         <br><br>
-        <input type="submit" value="Adicionar">
+        <input type="submit" value="Adicionar" class="btn">
     </form>
     <br>
     <div class="form-wrapper">
     <form action="/remover-ultimo" method="post">
-        <input type="submit" value="Remover Último">
+        <input type="submit" value="Remover Último" class="btn">
     </form>
     </div>
     <div class="form-wrapper">
         <form action="/reiniciar" method="post">
-        <input type="submit" value="Reiniciar">
+        <input type="submit" value="Reiniciar" class="btn">
     </form>
     </div>
         {% if dados %}
@@ -99,7 +99,7 @@
         {% if dados and parametros %}
         <div class="form-wrapper">
         <form action="/calcular" method="post">
-    <input type="submit" value="Calcular">
+    <input type="submit" value="Calcular" class="btn">
         </form>
     </div>
         {% endif %}
