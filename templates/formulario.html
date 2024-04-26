@@ -33,11 +33,10 @@
         <input type="text" name="tensao_nominal" placeholder="Ex: 10 + j5">
         <label for="tensao_nominal">[V]</label>
         <br>
-        <label for="injecao">Injeção de corrente/potência:</label>
+        <label for="injecao">Injeção de corrente:</label>
         <select name="injecao">
         <option selected value="nao">Não</option>
             <option value="sim_corrente">Corrente</option>
-            <option value="sim_potencia">Potência</option>
         </select>
         <br>
         <label for="no_injecao">Nó da injeção:</label>
@@ -45,17 +44,13 @@
         <br>
         <label for="valor_injecao">Valor da injeção:</label>
         <input type="text" name="valor_injecao" placeholder="Ex: 3+j5">
-        <label for="valor_injecao">[A/VA]</label>
+        <label for="valor_injecao">[A]</label>
         <br><br>
         <input type="submit" value="Confirmar" class="btn">
         {% else %}
         {% if parametros[4] == 'sim_corrente' %}
         <p>Número de nós: {{ parametros[0] }} <br> Nó de referência:
             {{ parametros[1] }}<br> Nó da tensão nominal: {{ parametros[2] }}<br> Tensão nominal: {{ parametros[3] }} [V]<br> Injeção de {{ parametros[6] }} [A] no nó
-        {{ parametros[5] }}</p>
-        {% elif parametros[4] == 'sim_potencia' %}
-        <p>Número de nós: {{ parametros[0] }} <br> Nó de referência:
-            {{ parametros[1] }}<br> Nó da tensão nominal: {{ parametros[2] }}<br> Tensão nominal: {{ parametros[3] }} [V]<br> Injeção de {{ parametros[6] }} [VA] no nó
         {{ parametros[5] }}</p>
         {% else %}
         <p>Número de nós: {{ parametros[0] }} <br> Nó de referência:

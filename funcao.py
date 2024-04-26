@@ -30,7 +30,7 @@ def AnaliseNodal(dados, parametros):
         else:
             admitancias[no_nominal, i] = 0
     if parametros[4] != 'nao':
-        correntes[parametros[5]] = -1 * sympify(parametros[6].replace("j", "I*"))  # Corrente/potência entra negativa na matriz
+        correntes[parametros[5]] = -1 * sympify(parametros[6].replace("j", "I*"))  # Corrente entra negativa na matriz
     correntes[no_nominal] = tensao_nominal  # Colocar o valor da tensão nominal na matriz das correntes, na linha da tensão nominal
     correntes.row_del(referencia)  # Deletando a linha do nó de referência na matriz das correntes
     tensoes.row_del(referencia)  # Deletando a linha do nó de referência na matriz das tensões

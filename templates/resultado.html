@@ -28,10 +28,6 @@
         <p>Número de nós: {{ parametros[0] }} <br> Nó de referência:
             {{ parametros[1] }}<br> Nó da tensão nominal: {{ parametros[2] }}<br> Tensão nominal: {{ parametros[3] }} [V]<br> Injeção de {{ parametros[6] }} [A] no nó
         {{ parametros[5] }}</p>
-        {% elif parametros[4] == 'sim_potencia' %}
-        <p>Número de nós: {{ parametros[0] }} <br> Nó de referência:
-            {{ parametros[1] }}<br> Nó da tensão nominal: {{ parametros[2] }}<br> Tensão nominal: {{ parametros[3] }} [V]<br> Injeção de {{ parametros[6] }} [VA] no nó
-        {{ parametros[5] }}</p>
         {% else %}
         <p>Número de nós: {{ parametros[0] }} <br> Nó de referência:
             {{ parametros[1] }}<br> Nó da tensão nominal: {{ parametros[2] }}<br> Tensão nominal: {{ parametros[3] }} [V]<br>Sem injeção de corrente/potência!</p>
