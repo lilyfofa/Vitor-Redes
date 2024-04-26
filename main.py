@@ -74,10 +74,7 @@ def calcular():
 
 @app.route('/voltar', methods=['POST'])
 def voltar():
-    global dados, parametros
-    dados = []
-    parametros = []
-    resultado = []
+    global dados, parametros, resultado
     return render_template('formulario.html', dados=dados, resultado=resultado, parametros=parametros)
 
 
